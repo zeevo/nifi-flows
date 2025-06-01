@@ -554,8 +554,7 @@
         "Database User" : "#{database.user}",
         "dbcp-soft-min-evictable-idle-time" : "-1",
         "database-driver-locations" : "/opt/nifi/nifi-current/lib1",
-        "dbcp-max-idle-conns" : "8",
-        "Password" : "#{database.password}"
+        "dbcp-max-idle-conns" : "8"
       },
       "propertyDescriptors" : {
         "dbcp-min-idle-conns" : {
@@ -1661,7 +1660,7 @@
       "retriedRelationships" : [ ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
-      "scheduledState" : "DISABLED",
+      "scheduledState" : "ENABLED",
       "schedulingPeriod" : "1 min",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
@@ -2036,7 +2035,7 @@
         "name" : "database.user",
         "provided" : false,
         "sensitive" : false,
-        "value" : "jdiqjw8j1(&!(721hJJNNSNNSKk"
+        "value" : "postgres"
       }, {
         "description" : "",
         "name" : "database.password",
