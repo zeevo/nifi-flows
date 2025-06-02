@@ -67,7 +67,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "269d4c2a-c4b5-3295-b30b-9e12b26ed3cd",
-        "name" : "InvokeHTTP",
+        "name" : "Query chroniclingamerica.loc.gov",
         "type" : "PROCESSOR"
       },
       "zIndex" : 2
@@ -80,7 +80,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "269d4c2a-c4b5-3295-b30b-9e12b26ed3cd",
-        "name" : "InvokeHTTP",
+        "name" : "Query chroniclingamerica.loc.gov",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -97,7 +97,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "250bd808-47cb-333e-81a7-16e6d6681510",
-        "name" : "GenerateFlowFile",
+        "name" : "Trigger Flow",
         "type" : "PROCESSOR"
       },
       "zIndex" : 20
@@ -127,7 +127,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "7b556bce-baba-3e8e-903b-e0d37798c7f0",
-        "name" : "EvaluateJsonPath",
+        "name" : "Read Response",
         "type" : "PROCESSOR"
       },
       "zIndex" : 4
@@ -247,7 +247,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "7b556bce-baba-3e8e-903b-e0d37798c7f0",
-        "name" : "EvaluateJsonPath",
+        "name" : "Read Response",
         "type" : "PROCESSOR"
       },
       "zIndex" : 3
@@ -277,7 +277,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "7b556bce-baba-3e8e-903b-e0d37798c7f0",
-        "name" : "EvaluateJsonPath",
+        "name" : "Read Response",
         "type" : "PROCESSOR"
       },
       "zIndex" : 10
@@ -290,7 +290,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "7b556bce-baba-3e8e-903b-e0d37798c7f0",
-        "name" : "EvaluateJsonPath",
+        "name" : "Read Response",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -307,7 +307,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "269d4c2a-c4b5-3295-b30b-9e12b26ed3cd",
-        "name" : "InvokeHTTP",
+        "name" : "Query chroniclingamerica.loc.gov",
         "type" : "PROCESSOR"
       },
       "zIndex" : 1
@@ -860,7 +860,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "7b556bce-baba-3e8e-903b-e0d37798c7f0",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "EvaluateJsonPath",
+      "name" : "Read Response",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -112.0,
@@ -967,7 +967,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "250bd808-47cb-333e-81a7-16e6d6681510",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "GenerateFlowFile",
+      "name" : "Trigger Flow",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -112.0,
@@ -1064,7 +1064,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "269d4c2a-c4b5-3295-b30b-9e12b26ed3cd",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "InvokeHTTP",
+      "name" : "Query chroniclingamerica.loc.gov",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -112.0,
