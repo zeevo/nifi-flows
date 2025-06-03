@@ -379,36 +379,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "4611ab81-4ba5-38fa-bbb7-6796d5e013a8",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "5d863423-deb2-3150-88eb-5a8eefd0b2bd",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5106bfe5-b701-33a5-af14-c763c1240775",
-        "name" : "JoltTransformJSON",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 19
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "387a6ab1-e1e9-3dfc-a707-2e812e8dd617",
         "name" : "InvokeHTTP",
         "type" : "PROCESSOR"
@@ -431,6 +401,36 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 20
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4611ab81-4ba5-38fa-bbb7-6796d5e013a8",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "5d863423-deb2-3150-88eb-5a8eefd0b2bd",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "5106bfe5-b701-33a5-af14-c763c1240775",
+        "name" : "JoltTransformJSON",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 19
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -524,7 +524,8 @@
         "Database User" : "#{database.user}",
         "dbcp-soft-min-evictable-idle-time" : "-1",
         "database-driver-locations" : "/opt/nifi/nifi-current/lib1",
-        "dbcp-max-idle-conns" : "8"
+        "dbcp-max-idle-conns" : "8",
+        "Password" : "#{database.password}"
       },
       "propertyDescriptors" : {
         "dbcp-min-idle-conns" : {
@@ -618,7 +619,7 @@
           "name" : "database-driver-locations",
           "resourceDefinition" : {
             "cardinality" : "MULTIPLE",
-            "resourceTypes" : [ "DIRECTORY", "URL", "FILE" ]
+            "resourceTypes" : [ "FILE", "DIRECTORY", "URL" ]
           },
           "sensitive" : false
         },
@@ -811,18 +812,18 @@
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "1f3e88f8-f7fe-3e3d-bb4e-e3187da08cc3",
-      "position" : {
-        "x" : 40.0,
-        "y" : 848.0
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
       "identifier" : "ea6309e2-bc0d-31a8-b80c-4d1570bc6fb5",
       "position" : {
         "x" : 592.0,
         "y" : -40.0
+      }
+    }, {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "1f3e88f8-f7fe-3e3d-bb4e-e3187da08cc3",
+      "position" : {
+        "x" : 40.0,
+        "y" : 848.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -949,7 +950,7 @@
           "name" : "Custom Module Directory",
           "resourceDefinition" : {
             "cardinality" : "MULTIPLE",
-            "resourceTypes" : [ "DIRECTORY", "FILE" ]
+            "resourceTypes" : [ "FILE", "DIRECTORY" ]
           },
           "sensitive" : false
         },
@@ -967,7 +968,7 @@
           "name" : "Jolt Specification",
           "resourceDefinition" : {
             "cardinality" : "SINGLE",
-            "resourceTypes" : [ "TEXT", "FILE" ]
+            "resourceTypes" : [ "FILE", "TEXT" ]
           },
           "sensitive" : false
         }
@@ -980,113 +981,6 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.jolt.JoltTransformJSON",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.4.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "35bc1d01-8118-3e65-b819-420a4f961653",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "EvaluateJsonPath",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -112.0,
-        "y" : -160.0
-      },
-      "properties" : {
-        "Destination" : "flowfile-attribute",
-        "start.index" : "$.startIndex",
-        "Max String Length" : "20 MB",
-        "end.index" : "$.endIndex",
-        "Return Type" : "auto-detect",
-        "Null Value Representation" : "empty string",
-        "items.per.page" : "$.itemsPerPage",
-        "total.items" : "$.totalItems",
-        "Path Not Found Behavior" : "ignore"
-      },
-      "propertyDescriptors" : {
-        "Destination" : {
-          "displayName" : "Destination",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Destination",
-          "sensitive" : false
-        },
-        "start.index" : {
-          "displayName" : "start.index",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "start.index",
-          "sensitive" : false
-        },
-        "Max String Length" : {
-          "displayName" : "Max String Length",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Max String Length",
-          "sensitive" : false
-        },
-        "end.index" : {
-          "displayName" : "end.index",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "end.index",
-          "sensitive" : false
-        },
-        "Return Type" : {
-          "displayName" : "Return Type",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Return Type",
-          "sensitive" : false
-        },
-        "Null Value Representation" : {
-          "displayName" : "Null Value Representation",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Null Value Representation",
-          "sensitive" : false
-        },
-        "items.per.page" : {
-          "displayName" : "items.per.page",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "items.per.page",
-          "sensitive" : false
-        },
-        "total.items" : {
-          "displayName" : "total.items",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "total.items",
-          "sensitive" : false
-        },
-        "Path Not Found Behavior" : {
-          "displayName" : "Path Not Found Behavior",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Path Not Found Behavior",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.EvaluateJsonPath",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
@@ -1473,6 +1367,113 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.4.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "35bc1d01-8118-3e65-b819-420a4f961653",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "EvaluateJsonPath",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -112.0,
+        "y" : -160.0
+      },
+      "properties" : {
+        "Destination" : "flowfile-attribute",
+        "start.index" : "$.startIndex",
+        "Max String Length" : "20 MB",
+        "end.index" : "$.endIndex",
+        "Return Type" : "auto-detect",
+        "Null Value Representation" : "empty string",
+        "items.per.page" : "$.itemsPerPage",
+        "total.items" : "$.totalItems",
+        "Path Not Found Behavior" : "ignore"
+      },
+      "propertyDescriptors" : {
+        "Destination" : {
+          "displayName" : "Destination",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Destination",
+          "sensitive" : false
+        },
+        "start.index" : {
+          "displayName" : "start.index",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "start.index",
+          "sensitive" : false
+        },
+        "Max String Length" : {
+          "displayName" : "Max String Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Max String Length",
+          "sensitive" : false
+        },
+        "end.index" : {
+          "displayName" : "end.index",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "end.index",
+          "sensitive" : false
+        },
+        "Return Type" : {
+          "displayName" : "Return Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Return Type",
+          "sensitive" : false
+        },
+        "Null Value Representation" : {
+          "displayName" : "Null Value Representation",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Null Value Representation",
+          "sensitive" : false
+        },
+        "items.per.page" : {
+          "displayName" : "items.per.page",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "items.per.page",
+          "sensitive" : false
+        },
+        "total.items" : {
+          "displayName" : "total.items",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "total.items",
+          "sensitive" : false
+        },
+        "Path Not Found Behavior" : {
+          "displayName" : "Path Not Found Behavior",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Path Not Found Behavior",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.EvaluateJsonPath",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
@@ -1951,7 +1952,7 @@
         "name" : "database.connection.url",
         "provided" : false,
         "sensitive" : false,
-        "value" : "jdbc:postgresql://ec2-18-205-156-96.compute-1.amazonaws.com:5432/postgres"
+        "value" : "jdbc:postgresql://ec2-3-87-202-112.compute-1.amazonaws.com:5432/postgres"
       } ]
     }
   },
